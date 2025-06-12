@@ -51,6 +51,13 @@ impl PublicContext {
     pub fn signing_key(&self) -> sig::PublicKey {
         self.sign.clone()
     }
+
+    pub fn as_bytes(&self) -> Vec<u8> {
+        let mut out: Vec<u8> = Vec::new();
+        out.extend(self.encryption_key().into_vec());
+        out.extend(self.signing_key().into_vec());
+        out
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone)]

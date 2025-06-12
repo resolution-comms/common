@@ -13,7 +13,7 @@ pub enum Error {
     MsgpackSerialization(#[from] rmp_serde::encode::Error),
 
     #[error("Msgpack deserialization error: {0:?}")]
-    MsgpackDeserialization(#[from] rmp_serde::decode::Error),
+    MsgpackDeserialization(#[from] rmp_serde::decode::Error)
 }
 
 pub type Result<T> = std::result::Result<T, Error>;
